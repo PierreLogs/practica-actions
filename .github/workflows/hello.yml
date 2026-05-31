@@ -4,13 +4,5 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Saludar
-        run: echo "Hola desde GitHub Actions!"
-      - name: Fecha
-        run: echo "Fecha: $(date)"
-      - name: Info
-        run: |
-          echo "OS: ${{ runner.os }}"
-          echo "Branch: ${{ github.ref_name }}"
-          echo "Commit: ${{ github.sha }}"
+        run: echo "Hola desde GitHub Actions"
