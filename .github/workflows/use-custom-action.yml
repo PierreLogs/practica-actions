@@ -1,0 +1,13 @@
+name: Use Custom Action
+on: [push]
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Usar mi action
+        uses: PierreLogs/my-custom-action@main
+        with:
+          who: "GitHub"
+      - name: Mostrar output
+        run: echo "Output recibido"
