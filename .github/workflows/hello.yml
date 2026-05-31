@@ -6,11 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Saludar
-        run: echo "¡Hola desde GitHub Actions!"
+        run: echo "Hola desde GitHub Actions!"
       - name: Fecha
         run: echo "Fecha: $(date)"
-      - name: Información
+      - name: Info
         run: |
-          echo "OS: ${{runner.os}}"
-          echo "Branch: ${{github.ref_name}}"
-          echo "Commit: ${{github.sha}}"
+          echo "OS: ${{ runner.os }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
