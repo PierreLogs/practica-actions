@@ -1,0 +1,31 @@
+name: Eventos
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Entorno
+        required: true
+        default: staging
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Informacion del evento
+        run: |
+          echo "Evento: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Actor: ${{ github.actor }}"
+      - name: Inputs manuales
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "Environment: ${{ inputs.environment }}"
